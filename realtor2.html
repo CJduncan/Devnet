@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Realty Professionals</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+            
+            padding: 20px;
+        }
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+        }
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            overflow: hidden;
+        }
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        header .highlight, header .current a {
+            color: #e8491d;
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #ffffff;
+            font-weight: bold;
+        }
+        #showcase {
+            min-height: 400px;
+            background: url('/api/placeholder/1200/400') no-repeat center;
+            background-size: cover;
+            text-align: center;
+            color: #ffffff;
+        }
+        #showcase h1 {
+            margin-top: 100px;
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+        #showcase p {
+            font-size: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #35424a;
+            color: #ffffff;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        footer {
+            padding: 20px;
+            margin-top: 20px;
+            color: #ffffff;
+            background-color: #35424a;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Premium</span> Realty Professionals</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="showcase">
+        <div class="container">
+            <h1>Find Your Dream Home</h1>
+            <p>Trust our experienced realtors to guide you through your real estate journey</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <h2>Our Top Realtors</h2>
+        <p>With years of experience and a deep understanding of the local market, our realtors are here to help you with all your real estate needs.</p>
+        <table id="realtorTable" class="display">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th>Specialization</th>
+                    <th>Years of Experience</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table body will be populated by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <h2>Why Choose Us?</h2>
+        <ul>
+            <li>Extensive market knowledge</li>
+            <li>Personalized service</li>
+            <li>Proven track record of success</li>
+            <li>Strong negotiation skills</li>
+            <li>Comprehensive marketing strategies</li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2>Latest Real Estate News</h2>
+        <p>Stay informed with our latest updates on market trends, property values, and real estate tips.</p>
+        <div class="news-item">
+            <h3>Market Update: Spring 2024</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula.</p>
+        </div>
+        <div class="news-item">
+            <h3>Top 5 Home Staging Tips</h3>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; DevNet CSU</p>
+    </footer>
+
+    <script>
+        function generatePhoneNumber() {
+            return '(555) ' + Math.floor(100 + Math.random() * 900) + '-' + Math.floor(1000 + Math.random() * 9000);
+        }
+
+        
+        function generateName() {
+            const firstNames = ['John', 'Jane', 'Michael', 'Emily', 'David', 'Sarah', 'Robert', 'Jennifer', 'William', 'Elizabeth'];
+            const lastNames = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Rodriguez', 'Martinez'];
+            return firstNames[Math.floor(Math.random() * firstNames.length)] + ' ' + lastNames[Math.floor(Math.random() * lastNames.length)];
+        }
+
+        
+        function generateSpecialization() {
+            const specializations = ['Residential', 'Commercial', 'Luxury Homes', 'First-Time Buyers', 'Investment Properties', 'Vacation Rentals', 'Condos', 'Foreclosures', 'New Construction', 'Rural Properties'];
+            return specializations[Math.floor(Math.random() * specializations.length)];
+        }
+
+        
+        const realtors = [];
+        for (let i = 0; i < 100; i++) {
+            realtors.push({
+                name: generateName(),
+                phone: generatePhoneNumber(),
+                specialization: generateSpecialization(),
+                experience: Math.floor(1 + Math.random() * 30) 
+            });
+        }
+
+        
+        $(document).ready(function() {
+            const table = $('#realtorTable').DataTable({
+                data: realtors,
+                columns: [
+                    { data: 'name' },
+                    { data: 'phone' },
+                    { data: 'specialization' },
+                    { data: 'experience', render: function(data) { return data + ' years'; } }
+                ],
+                pageLength: 10,
+                lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]]
+            });
+        });
+    </script>
+</body>
+</html>
